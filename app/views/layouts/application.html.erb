@@ -17,7 +17,7 @@
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Problem?", new_issue_path %></li>
       <% if logged_in? %>
-        <li><%= link_to "Leave", signout_path, :method => :delete %>
+        <li><%= link_to "Leave", signout_path, :method => :delete %></li>
       <% end %>
     </ul>
 
