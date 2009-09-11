@@ -1,19 +1,139 @@
+/* =====
+   RESET
+   ===== */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+:focus {
+	outline: 0;
+}
+
 body {
-  font-family: Georgia, Times, serif;
-  line-height: 1.5em;
-  color: #333;
+	line-height: 1;
+	color: black;
+	background: white;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: "";
+}
+
+blockquote, q {
+	quotes: "" "";
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+/* =======
+   OVERALL
+   ======= */
+
+body {
+  background: #800219;
+  font-family: Helvetica, Verdana, Arial, Sans-serif;
+}
+
+/* ======
+   HEADER
+   ====== */
+
+a#logo {
+  background: url(/images/logo.png);
+  width: 345px;
+  height: 143px;
+  margin: 20px auto;
+  display: block;
+}
+
+a#logo span {
+  display: none;
+}
+
+/* ==========
+   NAVIGATION
+   ========== */
+
+#navigation {
+  width: 960px;
+  margin: auto;
+  background: #ebebeb;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-topleft: 20px;
+}
+
+#navigation li {
+  display: inline-block;
+  border-right: solid 1px #aaa;
+  padding: 10px 15px;
+  background: #ebebeb;
+  font-size: 0.9em;
+}
+
+#navigation .active {
   background: #fff;
 }
 
-#header {
-  padding: 20px;
+#navigation li:last-child {
+  border-right: none;
 }
 
-#content {
-  float: left;
-  width: 66%;
-  margin-right: 6%;
+#navigation a {
+  color: #00f;
 }
+
+/* =========
+   CONTAINER
+   ========= */
+
+#container {
+  background: #fff;
+  margin: auto;
+  width: 920px;
+  padding: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  -webkit-border-radius-bottom-left: 20px;
+}
+
+/* =======
+   SIDEBAR
+   ======= */
 
 #sidebar {
   margin-top: 20px;
@@ -24,36 +144,45 @@ body {
   padding-bottom: 5px;
 }
 
+/* ======
+   FOOTER
+   ====== */
+
 #footer {
-  clear: both;
-  padding: 30px 200px;
+  text-align: center;
+  color: #fff;
+  font-size: .8em;
+  margin: 10px 0;
 }
 
-#header h1 {
-  padding: 0;
-  margin: 0;
-  width: 50%;
-  letter-spacing: 1.5px;
-  font-variant: small-caps;
+#footer a {
+  color: #fff;
 }
 
-#nav {
-  float: right;
-  margin: 0;
-  border-bottom: 1px solid #BE0726;
+#footer a:hover {
+  color: #000;
+  background: #fff;
 }
 
-#nav li {
-  list-style: none;
-  display: inline;
-}
+/* =========
+   HEADLINES
+   ========= */
 
-#nav a {
-  line-height: 14px;
+h1 {
+  text-align: center;
   font-weight: bold;
-  margin: 0 10px 4px 10px;
-  text-decoration: none;
+  font-size: 2.3em;
 }
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* ==============
+   FLASH MESSAGES
+   ============== */
 
 .flash {
   font-size: 1.8em;
@@ -64,38 +193,44 @@ body {
   text-transform: lowercase;
 }
 
-.flash_success {
- 
-}
-
 .flash_error {
   color: #BE0726;
 }
 
-.pagination {
-  font-size: 1.2em;
-  line-height: 1.833;
-  float: right;
+/* ====
+   TEXT
+   ==== */
+
+p {
+  margin-top: 15px;
 }
+
+/* =====
+   FORMS
+   ===== */
 
 form {
-  margin-left: 50px;
+  margin-top: 15px;
+  clear: both;
 }
 
-form div {
- padding: 5px 0;
+fieldset {
+  border: dashed 1px #000;
+  padding: 0 20px 20px 20px;
 }
 
-form .required {
-  color: #be0726;
+legend {
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
-.issues p {
-  line-height: 1.5;
-  font-size: 1.4em;
-  margin: 10px 30px;
-  text-align: justify;
+input[type=text], input[type=password], input[type=submit] {
+  font-size: 1.5em;
 }
+
+/* ======
+   TABLES
+   ====== */
 
 table {
   border-collapse: collapse;
@@ -103,4 +238,14 @@ table {
 
 tr, td {
   padding: 10px;
+}
+
+/* ====
+   ETC.
+   ==== */
+
+.pagination {
+  font-size: 1.2em;
+  line-height: 1.833;
+  float: right;
 }

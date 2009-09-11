@@ -1,12 +1,12 @@
 <% form_for(@participant) do |f| %>
   <%= f.error_messages %>
 
-  <div>
+  <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
+  </p>
   
-  <div>
+  <p>
     <%= f.submit 'Sign me up' %>
-  </div>
+  </p>
 <% end %>

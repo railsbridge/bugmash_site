@@ -1,27 +1,27 @@
 <%= form.error_messages %>
   
-<div>
+<p>
   <%= form.label :contributor_name, 'Your name', :class => 'required' %><br />
   <%= form.text_field :contributor_name %>
-</div>
-<div>
+</p>
+<p>
   <%= form.label :email %> <br />
   <%= form.text_field :email %>
-</div>
-<div>
+</p>
+<p>
   <%= form.label :lighthouse_id, 'Lighthouse Ticket Number' %><br />
   <%= form.text_field :lighthouse_id %>
-</div>
-<div>
+</p>
+<p>
   <%= form.label :details, 'Details', :class => 'required' %><br />
   <%= form.text_area :details %>
-</div>
+</p>
 <% if logged_in? %>
-  <div>
+  <p>
     <%= form.label :fixed, 'Fixed?' %>
     <%= form.check_box :fixed %>
-  </div>
+  </p>
 <% end %>
-<div>
+<p>
   <%= form.submit 'Send', :name => nil %>
-</div>
+</p>
