@@ -1,0 +1,89 @@
+= Little Helper
+
+Gyro Gearloose's Little Helper keeping your views DRY.
+
+== Installation
+
+  script/plugin install git://github.com/thisisdato/little_helper.git
+
+== Usage
+
+=== #title
+
+Setting and printing the page title:
+
+  <h1><%= title 'Hello, World!' %></h1>
+  => <h1>Hello, World!</h1>
+
+Printing a <title> tag with the specified page title:
+
+  <%= title :site => 'Some Site' %>
+  => <title>Some Site &mdash; Hello, World!</title>
+
+==== Options
+
+* <tt>:site</tt> is the site name to display in the <title> tag
+* <tt>:separator</tt> separates site name and page title. Default is <tt>&mdash;</tt>
+* <tt>:reverse</tt> causes the page title to be printed before the separator. Default is <tt>false</tt>
+
+=== #stylesheet & #javascript
+
+Specifying which stylesheets the page depends on:
+
+  <% stylesheet 'foo', 'bar' %>
+
+Specifiying which JavaScripts the page depends on:
+
+  <% javascript 'foo', 'bar' %>
+
+Printing the respective <tt><link></tt> and <tt><script></tt> tags in the layout:
+
+    <!-- ... -->
+    <%= yield :head %>
+  </head>
+
+The two methods support the same arguments as +stylesheet_link_tag+ and +javascript_include_tag+ respectively.
+
+=== #tab & #child
+
+Printing a tab with no children:
+
+  <%= tab 'Home', root_url %>
+
+When the user is at the homepage the output will be:
+
+  <li class="active">Home</li>
+
+Otherwise it will be:
+
+  <li><a href="/">Home</a></li>
+
+Printing a tab with children:
+
+  <%=
+    tab 'People', people_url do
+      child :controller => 'people'
+      # ...
+    end
+  %>
+
+When we're at the <tt>/people/new</tt> (for example) the output will be:
+
+  <li class="active"><a href="/people">People</a></li>
+
+When neither the tab itself nor any of its children is active the output will be:
+
+  <li><a href="/people">People</a></li>
+
+<tt>#tab</tt> accepts the same options as <tt>#link_to_unless_current</tt>
+
+== Running the Spec
+
+  rake spec
+
+You will need the +activesupport+ and +actionpack+ gems.
+
+== Copyright
+
+Copyright (c) 2009 David Trasbo. Little Helper is released under the terms of
+the MIT License. See LICENSE for further details.
