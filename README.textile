@@ -3,5 +3,4 @@ h1. bugmash_site
 h2. To-do list
 
 * Sidebar styling
-* Activate tabs based on current page
 * Table styling

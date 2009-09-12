@@ -14,10 +14,10 @@
     <a id="logo" href="/" title="Back to home"><span>RailsBridge BugMash</span></a>
 
     <ul id="navigation">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Problem?", new_issue_path %></li>
+      <%= tab 'Home', root_path %>
+      <%= tab 'Problem?', new_issue_path %>
       <% if logged_in? %>
-        <li><%= link_to "Leave", signout_path, :method => :delete %></li>
+        <%= tab 'Leave', signout_path, :method => :delete %>
       <% end %>
     </ul>
 
