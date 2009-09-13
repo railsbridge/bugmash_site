@@ -17,6 +17,7 @@
       <%= tab 'Home', root_path %>
       <%= tab 'Problem?', new_issue_path %>
       <% if logged_in? %>
+        <%= tab 'Issues', issues_path %>
         <%= tab 'Leave', signout_path, :method => :delete %>
       <% end %>
     </ul>
