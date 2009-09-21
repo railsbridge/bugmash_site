@@ -11,7 +11,7 @@
 
 <table>
   <caption>
-    <%= h(current_event.name) %> <em>Last updated: <%= @time_stamp %></em>
+    <%= h(current_event.name) %> <em>Last updated: <%= time_ago_in_words(@time_stamp) %></em>
   </caption>
   <tr>
     <th>Place</th>
