@@ -46,5 +46,5 @@ namespace :bugmash do
   task :seed_production => ['bugmash:seed:production:contribution',
                             'bugmash:seed:production:feeds',
                             'bugmash:seed:production:jobs',
-                            'bugbash:seed:production:event']
+                            'bugmash:seed:production:event']
 end
