@@ -43,7 +43,7 @@ namespace :bugmash do
   task :seed => 'bugmash:seed:participants'
 
   desc 'seed the production database'
-  task :seed_production => ['bugmash:seed:prduction:contribution',
+  task :seed_production => ['bugmash:seed:production:contribution',
                             'bugmash:seed:production:feeds',
                             'bugmash:seed:production:jobs',
                             'bugbash:seed:production:event']
