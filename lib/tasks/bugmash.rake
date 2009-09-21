@@ -29,7 +29,12 @@ namespace :bugmash do
 
       desc 'seed the first contribution'
       task :contribution => :environment do
-        Contribution.create!(:lighthouse_id => 2999, :point_value => 0) unless Contribution.exists?
+        Contribution.create!(:lighthouse_id => 3241, :point_value => 0) unless Contribution.exists?
+      end
+
+      desc 'seed test event'
+      task :event => :environment do
+        Event.create!(:name => 'Testing Bugmash Scoreboard', :current => true)
       end
     end
   end
@@ -40,5 +45,6 @@ namespace :bugmash do
   desc 'seed the production database'
   task :seed_production => ['bugmash:seed:prduction:contribution',
                             'bugmash:seed:production:feeds',
-                            'bugmash:seed:production:jobs']
+                            'bugmash:seed:production:jobs',
+                            'bugbash:seed:production:event']
 end

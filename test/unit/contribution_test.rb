@@ -41,13 +41,13 @@ class ContributionTest < ActiveSupport::TestCase
       assert ! Contribution.up_or_down_vote?('This is awesome.')
     end
   end
-  
+
   context '.patch?' do
     should 'detect a patch' do
       assert Contribution.patch?("I've attached a patch")
     end
   end
-  
+
   context '.extract_ticket_id' do
     should 'pull out the Lighthouse ticket id from title' do
       assert_equal 3000, Contribution.extract_ticket_id(Entry.new('John McClane', 'Do you really think you have a chance against us, Mr. Cowboy? [#3000]', 'Yippee-ki-yay'))
@@ -57,19 +57,20 @@ class ContributionTest < ActiveSupport::TestCase
       assert_equal 2661, Contribution.extract_ticket_id(Entry.new('John McClane', 'Something is broken', 'Ruby 1.9: fix Content-Length for multibyte send_data streaming [#2661 state:resolved]'))
     end
   end
-  
+
   context 'processing entries' do
     setup do
-      @participant = Factory(:participant)
+      event = Factory(:event)
+      @participant = Factory(:participant, :event => event)
       Contribution.create!(:lighthouse_id => 2999, :point_value => 25)
     end
-    
+
     should 'generate an Entry' do
       assert Tracker.count.zero?
       Contribution.process_entries([Entry.new(@participant.name, 'I broke something [#3000]', 'Yippee-ki-yay')])
       assert ! Tracker.count.zero?
     end
-    
+
     should 'add the value to Participant#score' do
       Contribution.process_entries([Entry.new(@participant.name, 'I broke something [#3000]', 'Yippee-ki-yay')])
       @participant.reload
@@ -83,19 +84,19 @@ class ContributionTest < ActiveSupport::TestCase
         assert_equal 50, contribution.point_value
       end
     end
-    
+
     should 'award 50 points for verified issue' do
       Contribution.process_entries([Entry.new(@participant.name, 'ActiveRecord needs more cowbell! [#2999]', 'I have verified the cowbell patch.')])
 
       assert_equal 50, Contribution.last.point_value
     end
-      
+
     should 'award 50 points for marking a ticket as not reproducible' do
       Contribution.process_entries([Entry.new(@participant.name, 'ActiveRecord needs more cowbell! [#2999]', 'not-reproducible.')])
 
       assert_equal 50, Contribution.last.point_value
     end
-    
+
     should 'award 100 points for a patch' do
       Contribution.process_entries([Entry.new(@participant.name, 'More cowbell! [#2999]', "I've attached a patch")])
 

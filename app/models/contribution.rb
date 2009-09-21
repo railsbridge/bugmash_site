@@ -18,7 +18,7 @@ class Contribution < ActiveRecord::Base
   def self.checked?(content)
     content[/(verified|reproduc)/i]
   end
-  
+
   def self.changeset?(content)
     content[/\[\#(\d{3,}) (state|status):(resolved|committed)\]/]
   end
@@ -38,10 +38,10 @@ class Contribution < ActiveRecord::Base
     entries.each do |entry|
       ticket_id = extract_ticket_id(entry)
       tracker = Tracker.create(:ticket_id => ticket_id, :saved_entry => entry)
-      
+
       unless ticket_id.zero?
         running_total = 0
-        
+
         if new_ticket?(ticket_id)
           running_total += 50
         else
@@ -49,15 +49,15 @@ class Contribution < ActiveRecord::Base
           running_total += 50 if checked?(entry.content)
           running_total += 1000 if changeset?(entry.content)
         end
-        
+
         running_total += 100 if patch?(entry.content)
 
         unless running_total.zero?
-          participant = Participant.find_or_create(entry.author)
+          participant = Event.current.participants.find_or_create(entry.author)
           participant.contributions.create(:lighthouse_id => ticket_id,
                                            :point_value => running_total)
           participant.increment!(:score, running_total)
-        end        
+        end
       end
     end
   end

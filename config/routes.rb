@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :events
   map.resources :participants
   map.resources :sessions, :only => [:new, :create, :destroy]
   map.resources :contributions

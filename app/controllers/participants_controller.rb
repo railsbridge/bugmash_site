@@ -2,7 +2,9 @@ class ParticipantsController < ApplicationController
   before_filter :login_required, :except => [:show, :index]
 
   def index
-    @participants = Participant.paginate(:page => params[:page], :per_page => 25, :order => 'score DESC')
+    @participants = current_event.participants.paginate(:page => params[:page],
+                                                        :per_page => 25,
+                                                        :order => 'score DESC')
     @latest_contributions = Contribution.last_five
     # we're using the seeded contribution as our timestamp
     @time_stamp = Contribution.dummy.first.try(:updated_at)

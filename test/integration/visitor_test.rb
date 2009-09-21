@@ -4,7 +4,8 @@ class VisitorTest < ActionController::IntegrationTest
   context 'A visitor to the site' do
     setup do
       stub(Contribution).dummy.stub!.first.stub!.updated_at {Time.now}
-      @participant = Factory(:participant)
+      @event = Factory(:event)
+      @participant = Factory(:participant, :event => @event)
     end
 
     should 'see a list of Participants' do

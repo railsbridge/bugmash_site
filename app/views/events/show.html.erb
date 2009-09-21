@@ -1,0 +1,10 @@
+<dl>
+  <dt>Name</dt>
+  <dd><%= h @event.name -%></dd>
+</dl>
+ 
+<p>
+  <%= link_to 'Edit', edit_event_path(@event) -%>
+  |
+  <%= link_to 'Back', :back -%>
+</p>

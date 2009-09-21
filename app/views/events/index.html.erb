@@ -1,0 +1,17 @@
+<h1>events</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Current?</th>
+  </tr>
+
+  <% @events.each do |event| %>
+  <tr>
+    <td><%= link_to(h(event.name), edit_event_path(event)) %></td>
+    <td><%= event.current? %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'New event', new_event_path -%></p>

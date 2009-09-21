@@ -1,0 +1,8 @@
+<%= form.error_messages %>
+
+<dl>
+  <dt><%= form.label :name -%></dt>
+  <dd><%= form.text_field :name -%></dd>
+  <dt><%= form.label :current, 'Current?' %>
+  <dd><%= form.check_box :current  %></dd>
+</dl>
