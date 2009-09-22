@@ -1,3 +1,5 @@
+<h1><%= title "Scoreboard for #{current_event.name}" %></h1>
+
 <% content_for :sidebar do %>
   <h3>
     Recent Activity:
@@ -9,23 +11,28 @@
   </ul>
 <% end %>
 
-<table>
-  <caption>
-    <%= h(current_event.name) %> <em>Last updated: <%= time_ago_in_words(@time_stamp) %></em>
-  </caption>
-  <tr>
-    <th>Place</th>
-    <th>Name</th>
-    <th>Score</th>
-  </tr>
+<table id="scoreboard">
+  <thead>
+    <caption>
+      <em>Last updated: <%= time_ago_in_words(@time_stamp) %></em>
+    </caption>
 
-<% @participants.each_with_index do |participant, index| %>
-  <tr class="<%= cycle('even', 'odd') %>">
-    <th><%= index + 1 + ((@participants.current_page - 1) * @participants.per_page) %></th>
-    <td><%= link_to(h(participant.name), participant) %></td>
-    <td><%= participant.score %></td>
-  </tr>
-<% end %>
+    <tr>
+      <th>Place</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participants.each_with_index do |participant, index| %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <th><%= index + 1 + ((@participants.current_page - 1) * @participants.per_page) %></th>
+        <td><%= link_to(h(participant.name), participant) %></td>
+        <td><%= participant.score %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= will_paginate @participants %>

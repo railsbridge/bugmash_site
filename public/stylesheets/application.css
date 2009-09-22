@@ -131,6 +131,10 @@ a#logo span {
   -webkit-border-radius-bottom-left: 20px;
 }
 
+#scoreboard {
+  width: 100%;
+}
+
 /* =======
    SIDEBAR
    ======= */
@@ -249,6 +253,10 @@ ul {
 table {
   margin-top: 15px;
   border-collapse: collapse;
+}
+
+caption {
+  margin-top: 15px;
 }
 
 tr, td, th {
