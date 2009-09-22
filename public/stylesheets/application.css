@@ -233,11 +233,25 @@ input[type=text], input[type=password], input[type=submit] {
    ====== */
 
 table {
+  margin-top: 15px;
   border-collapse: collapse;
 }
 
-tr, td {
+tr, td, th {
   padding: 10px;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr {
+  border: dashed #000;
+  border-width: 1px 0;
+}
+
+tr.odd {
+  background: #ebebeb;
 }
 
 /* ====
