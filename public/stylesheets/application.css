@@ -142,6 +142,7 @@ a#logo span {
 #sidebar li {
   list-style: none;
   padding-bottom: 5px;
+  font-size: 0.8em;
 }
 
 /* ======
@@ -178,6 +179,11 @@ h2 {
   font-size: 1.5em;
   margin-top: 15px;
   text-align: center;
+}
+
+h3 {
+  margin-top: 15px;
+  font-size: 1.2em;
 }
 
 /* ==============
@@ -226,6 +232,14 @@ legend {
 
 input[type=text], input[type=password], input[type=submit] {
   font-size: 1.5em;
+}
+
+/* =====
+   LISTS
+   ===== */
+
+ul {
+  margin-top: 15px;
 }
 
 /* ======

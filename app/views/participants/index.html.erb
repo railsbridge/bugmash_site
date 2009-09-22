@@ -1,10 +1,10 @@
 <% content_for :sidebar do %>
-  <p>
+  <h3>
     Recent Activity:
-  </p>
+  </h3>
   <ul>
     <% @latest_contributions.each do |contribution| %>
-      <li><%= link_to(contribution.participant.name, contribution.participant) %> [<%= contribution.point_value %> pts for <%= link_to(contribution.lighthouse_id, "https://rails.lighthouseapp.com/projects/8994/tickets/#{contribution.lighthouse_id}") %>] <em><%= time_ago_in_words(contribution.created_at)  %> ago</em>.</li>
+      <li><%= link_to(contribution.participant.name, contribution.participant) %> got <strong><%= contribution.point_value %> pts</strong> for <%= link_to("##{contribution.lighthouse_id}", "https://rails.lighthouseapp.com/projects/8994/tickets/#{contribution.lighthouse_id}") %> <em><%= time_ago_in_words(contribution.created_at)  %> ago</em></li>
     <% end %>
   </ul>
 <% end %>
@@ -20,7 +20,7 @@
   </tr>
 
 <% @participants.each_with_index do |participant, index| %>
-  <tr>
+  <tr class="<%= cycle('even', 'odd') %>">
     <th><%= index + 1 + ((@participants.current_page - 1) * @participants.per_page) %></th>
     <td><%= link_to(h(participant.name), participant) %></td>
     <td><%= participant.score %></td>
