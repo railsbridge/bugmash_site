@@ -81,11 +81,12 @@ a#logo span {
 #sidebar li {
   padding-bottom: 5px;
   font-size: 0.8em;
+  list-style: none;
 }
 
-#sidebar #links {
+#sidebar #links li {
   list-style: square;
-  padding-left: 35px;
+  margin-left: 35px;
   font-size: 1.2em;
 }
 

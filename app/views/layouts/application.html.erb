@@ -24,7 +24,7 @@
     </ul>
 
     <div class="container" class="<%= controller_name.downcase %>">
-      <div class="span-18">
+      <div class="span-16">
         <% if flash.any? %>
           <% flash.each do |key, value| %>
             <%= content_tag :div, value, :class => "flash flash_#{key}" %>
@@ -34,7 +34,7 @@
         <%= yield %>
       </div>
 
-      <div class="span-6 last" id="sidebar">
+      <div class="span-8 last" id="sidebar">
         <%= yield :sidebar %>
 
         <h3>Links:</h3>
