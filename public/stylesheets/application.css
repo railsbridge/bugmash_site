@@ -91,7 +91,7 @@ a#logo span {
    ========== */
 
 #navigation {
-  width: 960px;
+  width: 990px;
   margin: auto;
   background: #ebebeb;
   -moz-border-radius-topright: 20px;
@@ -122,10 +122,8 @@ a#logo span {
    CONTAINER
    ========= */
 
-#container {
+.container {
   background: #fff;
-  margin: auto;
-  width: 920px;
   padding: 20px;
   -moz-border-radius-bottomleft: 20px;
   -webkit-border-radius-bottom-left: 20px;

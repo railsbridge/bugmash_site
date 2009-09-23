@@ -8,7 +8,7 @@
     <!--[if IE]>
         <link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen">
     <![endif]-->
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'screen', 'application' %>
   </head>
   <body>
     <a id="logo" href="/" title="Back to home"><span>RailsBridge BugMash</span></a>
@@ -23,16 +23,18 @@
       <% end %>
     </ul>
 
-    <div id="container" class="<%= controller_name.downcase %>">
-      <% if flash.any? %>
-        <% flash.each do |key, value| %>
-          <%= content_tag :div, value, :class => "flash flash_#{key}" %>
+    <div class="container" class="<%= controller_name.downcase %>">
+      <div class="span-18">
+        <% if flash.any? %>
+          <% flash.each do |key, value| %>
+            <%= content_tag :div, value, :class => "flash flash_#{key}" %>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <%= yield %>
+        <%= yield %>
+      </div>
 
-      <div id="sidebar">
+      <div class="span-6 last" id="sidebar">
         <%= yield :sidebar %>
 
         <p>links</p>
