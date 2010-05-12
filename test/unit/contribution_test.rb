@@ -45,6 +45,7 @@ class ContributionTest < ActiveSupport::TestCase
   context '.patch?' do
     should 'detect a patch' do
       assert Contribution.patch?("I've attached a patch")
+      assert Contribution.patch?("attach patch")
     end
   end
 
