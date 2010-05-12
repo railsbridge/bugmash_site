@@ -29,7 +29,7 @@ namespace :bugmash do
 
       desc 'seed the first contribution'
       task :contribution => :environment do
-        Contribution.create!(:lighthouse_id => 3241, :point_value => 0) unless Contribution.exists?
+        Contribution.create!(:lighthouse_id => 4582, :point_value => 0) unless Contribution.exists?
       end
 
       desc 'seed test event'
