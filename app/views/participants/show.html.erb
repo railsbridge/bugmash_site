@@ -1,4 +1,4 @@
-<h1><%= link_to_if(logged_in?, @participant.name, edit_participant_path(@participant)) %> <%= @participant.score %> points for <%= @participant.event.name %></h3>
+<h2><%= link_to_if(logged_in?, @participant.name, edit_participant_path(@participant)) %> <%= @participant.score %> points for <%= @participant.event.name %></h2>
 <table>
   <tr>
     <th>Lighthouse Ticket</th>
