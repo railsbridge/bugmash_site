@@ -1,38 +1,44 @@
-<h1><%= title "Scoreboard for #{current_event.name}" %></h1>
+<h2><%= title "Scoreboard for #{current_event.name}" %></h2>
 
 <% content_for :sidebar do %>
   <h3>
-    Recent Activity:
+    Recent Activity
   </h3>
   <ul>
     <% @latest_contributions.each do |contribution| %>
-      <li><%= link_to(contribution.participant.name, contribution.participant) %> got <strong><%= contribution.point_value %> pts</strong> for <%= link_to("##{contribution.lighthouse_id}", "https://rails.lighthouseapp.com/projects/8994/tickets/#{contribution.lighthouse_id}") %> <em><%= time_ago_in_words(contribution.created_at)  %> ago</em></li>
+      <li>
+        <strong>
+          <%= link_to(contribution.participant.name, contribution.participant) %>
+        </strong> got 
+        <strong>
+          <%= contribution.point_value %> 
+          pts
+        </strong> for Lighthouse ticket
+        <%= link_to("##{contribution.lighthouse_id}", "https://rails.lighthouseapp.com/projects/8994/tickets/#{contribution.lighthouse_id}") %> 
+        <%= time_ago_in_words(contribution.created_at)  %> ago.
+      </li>
     <% end %>
   </ul>
 <% end %>
 
 <table id="scoreboard">
   <thead>
-    <caption>
-      <em>Last updated: <%= time_ago_in_words(@time_stamp) %></em>
-    </caption>
-
     <tr>
       <th>Place</th>
       <th>Name</th>
-      <th>Score</th>
+      <th class="score-col">Score</th>
     </tr>
   </thead>
 
   <tbody>
     <% @participants.each_with_index do |participant, index| %>
       <tr class="<%= cycle('even', 'odd') %>">
-        <th><%= index + 1 + ((@participants.current_page - 1) * @participants.per_page) %></th>
+        <td><%= index + 1 + ((@participants.current_page - 1) * @participants.per_page) %></td>
         <td><%= link_to(h(participant.name), participant) %></td>
-        <td><%= participant.score %></td>
+        <td class=".score-col"><%= participant.score %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<h3 style="text-align: right;">Last updated <%= time_ago_in_words(@time_stamp) %> ago.</h3>
 <%= will_paginate @participants %>

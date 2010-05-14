@@ -11,14 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20090921142455) do
 
-  create_table "actions", :force => true do |t|
-    t.integer  "participant_id"
-    t.integer  "lighthouse_id"
-    t.integer  "point_value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "contributions", :force => true do |t|
     t.integer  "participant_id"
     t.integer  "lighthouse_id"
@@ -79,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20090921142455) do
 
   add_index "participants", ["active"], :name => "index_participants_on_active"
   add_index "participants", ["event_id"], :name => "index_participants_on_event_id"
-  add_index "participants", ["lighthouse_id", "name"], :name => "index_participants_on_name_and_lighthouse_id"
+  add_index "participants", ["name", "lighthouse_id"], :name => "index_participants_on_name_and_lighthouse_id"
 
   create_table "trackers", :force => true do |t|
     t.integer  "ticket_id"

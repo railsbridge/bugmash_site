@@ -9,13 +9,20 @@
         <link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen">
     <![endif]-->
     <%= stylesheet_link_tag 'screen', 'application' %>
+
+    <script type="text/javascript" src="http://use.typekit.com/mpy5xpb.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-    <a id="logo" href="/" title="Back to home"><span>RailsBridge BugMash</span></a>
+    <div id="header">
+      <h1><a href="/" title="Back to home">BugMash</a></h1>
+      <a id="logo" href="http://railsbridge.org/" target="_blank"><span>RailsBridge</span></a>
+    </div>
+    
 
     <ul id="navigation">
       <%= tab 'Home', root_path %>
-      <%= tab 'Problem?', new_issue_path %>
+      <%= tab 'Issues', new_issue_path %>
       <% if logged_in? %>
         <%= tab 'Issues', issues_path %>
         <%= tab 'Events', events_path %>
@@ -34,10 +41,10 @@
         <%= yield %>
       </div>
 
-      <div class="span-8 last" id="sidebar">
+      <div class="span-7 last" id="sidebar">
         <%= yield :sidebar %>
 
-        <h3>Links:</h3>
+        <h3>Links</h3>
         <ul id="links">
           <li>
             <a href="http://wiki.railsbridge.org/projects/railsbridge/wiki/BugMashFlowchart" title="BugMash instructions">

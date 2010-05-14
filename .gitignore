@@ -5,3 +5,4 @@ db/*.sqlite3
 db/development_structure.sql
 *.DS_Store
 lib/generators
+config/database.yml
