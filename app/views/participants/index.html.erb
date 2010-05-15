@@ -34,8 +34,8 @@
     <% @participants.each_with_index do |participant, index| %>
       <tr class="<%= cycle('even', 'odd') %>">
         <td><%= index + 1 + ((@participants.current_page - 1) * @participants.per_page) %></td>
-        <td><%= link_to(h(participant.name), participant) %></td>
-        <td class=".score-col"><%= participant.score %></td>
+        <td><%= link_to(participant.name, participant) %></td>
+        <td class="score-col"><%= participant.score %></td>
       </tr>
     <% end %>
   </tbody>
