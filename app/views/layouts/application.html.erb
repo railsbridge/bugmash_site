@@ -31,7 +31,7 @@
     </ul>
 
     <div class="container" class="<%= controller_name.downcase %>">
-      <div class="span-16">
+      <div class="span-16 main-body">
         <% if flash.any? %>
           <% flash.each do |key, value| %>
             <%= content_tag :div, value, :class => "flash flash_#{key}" %>
@@ -53,6 +53,12 @@
           </li>
           <li>
             <a href="http://wiki.railsbridge.org/projects/railsbridge/wiki/BugMash" title="BugMash Wiki">Wiki</a>
+          </li>
+          <li>
+            <%= link_to "Guide", "/BugMashManual.pdf" %>
+          </li>
+          <li>
+            <%= link_to "Sponsors", sponsors_path %>
           </li>
         </ul>
       </div>

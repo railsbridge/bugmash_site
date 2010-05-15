@@ -131,6 +131,10 @@ textarea {
    LISTS
    ===== */
 
+.container .main-body ul {
+  margin-left: 20px;
+}
+
 
 /* ======
    TABLES
@@ -354,3 +358,4 @@ tr.odd {
   border: none;
   background: #bd0625;
 }
+

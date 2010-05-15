@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :contributions
   map.resources :issues, :except => [:show, :destroy]
   map.resources :trackers, :only => :index
+  map.resources :sponsors, :only => :index
   map.signin '/signin', :controller => 'sessions', :action => 'new'
   map.signout '/signout', :controller => 'sessions', :action => 'destroy'
   map.root :controller => 'participants', :action => 'index'
